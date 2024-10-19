@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's play some videogames?</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            text-align: center;
+            place-content: center;
+            color: aliceblue;
+            background-color: lightpink;
+            font-family: fantasy;
+        }
+        img{
+           width: 350px;
+           height: 350px;
+            
+        }
+
+        button{
+            font-family: fantasy;
+            font-size: 14px;
+
+        }
+
+        
+
+        #btn-wrap{
+
+            padding: 25px;
+          
+            
+        }
+
+       
+
+        #btnNo{
+            position: absolute;
+            background: red;
+            border-radius: 50px;
+            border-style: dotted;
+            color: aliceblue;
+            transition: all 1s;
+
+
+        }
+        #btnNo:hover{
+            background: darkred;
+        }
+
+        #btnYes{
+            background: green;
+            border-radius: 50px;
+            border-style: dotted;
+            color: aliceblue;
+        }
+        #btnYes:hover{
+            background: darkgreen;
+        }
+        
+
+      
+
+
+    </style>
+</head>
+<body>
+    <img id= "mainImg" src="images/catgaming.gif" alt="">
+    <h1 id="maintxt">
+        Want to play some videogames?
+    </h1>
+    <span id="btn-wrap"><button id="btnYes">Yes</button></span>
+   <span id=" btn-wrap"><button id="btnNo">No</button> </span> 
+    
+</body>
+<script>
+    let size = 16
+    const phrases = ["Please?", "Are you sure?", "Are you afraid I'll beat you?", "Don't say that.", "Click the yes button, please.", "I'll let you be Player 1.", "I'll give you the cooler controller.", "You can choose the game."]
+    const Images = ["images/angry.gif", "images/angrycat.gif", "images/catangry3.gif", "images/gatitomeperdonas.gif", "images/kittyANgry.gif", "images/sadcat.gif", "images/sadkitty.gif", "images/sadkitty2.gif", "images/sadkitty3.gif"]
+    const buttonNo = document.getElementById("btnNo")
+    
+
+    function random(mn, mx) {
+        return Math.random() * (mx - mn) + mn;
+    }
+
+    function displayingtxt() {
+        const randomPhrases = phrases[(Math.floor(random(1, 9))) - 1];
+        return (randomPhrases)
+    }
+
+    function displayingimgs(){
+        const randomImages = Images[(Math.floor(random(1, 10))) - 1];
+        return (randomImages)
+
+    }
+
+
+
+    btnNo.onclick = ()=>{
+        size = size + 10
+        btnYes.style.fontSize = size + "px"
+        btnNo.style.top = (Math.random() * window.innerHeight) + "px"
+        btnNo.style.left = (Math.random() * window.innerHeight) + "px"
+        document.getElementById("mainImg").src=displayingimgs()
+        document.getElementById("btnNo").textContent = displayingtxt()
+
+
+
+        
+    }
+
+    btnYes.onclick = ()=>{
+        document.getElementById("mainImg").src="images/bongocat.gif"
+        document.getElementById("maintxt").textContent="YAY!!! :3"
+        buttonNo.remove()
+    
+
+
+    }
+
+</script>
+</html>
