@@ -81,8 +81,10 @@
 <script>
     let size = 16
     const phrases = ["Please?", "Are you sure?", "Are you afraid I'll beat you?", "Don't say that.", "Click the yes button, please.", "I'll let you be Player 1.", "I'll give you the cooler controller.", "You can choose the game."]
-    const Images = ["images/angry.gif", "images/angrycat.gif", "images/catangry3.gif", "images/gatitomeperdonas.gif", "images/kittyANgry.gif", "images/sadcat.gif", "images/sadkitty.gif", "images/sadkitty2.gif", "images/sadkitty3.gif"]
+    const sadImages = ["images/angry.gif", "images/angrycat.gif", "images/catangry3.gif", "images/gatitomeperdonas.gif", "images/kittyANgry.gif", "images/sadcat.gif", "images/sadkitty.gif", "images/sadkitty2.gif", "images/sadkitty3.gif"]
+    const happyImages = ["images/happy-happy.gif", "images/bongocat.gif", "images/luvu.gif", "images/smilee.gif", "images/jumping.gif"]
     const buttonNo = document.getElementById("btnNo")
+    
     
 
     function random(mn, mx) {
@@ -94,9 +96,15 @@
         return (randomPhrases)
     }
 
-    function displayingimgs(){
-        const randomImages = Images[(Math.floor(random(1, 10))) - 1];
-        return (randomImages)
+    function displayingimgssad(){
+        const randomsadImages = sadImages[(Math.floor(random(1, 10))) - 1];
+        return (randomsadImages)
+
+    }
+
+    function displayingimgshappy(){
+        const randomhappyImages = happyImages[(Math.floor(random(1, 5))) - 1];
+        return (randomhappyImages)
 
     }
 
@@ -107,7 +115,7 @@
         btnYes.style.fontSize = size + "px"
         btnNo.style.top = (Math.random() * window.innerHeight) + "px"
         btnNo.style.left = (Math.random() * window.innerHeight) + "px"
-        document.getElementById("mainImg").src=displayingimgs()
+        document.getElementById("mainImg").src=displayingimgssad()
         document.getElementById("btnNo").textContent = displayingtxt()
 
 
@@ -116,8 +124,8 @@
     }
 
     btnYes.onclick = ()=>{
-        document.getElementById("mainImg").src="images/bongocat.gif"
-        document.getElementById("maintxt").textContent="YAY!!! :D"
+        document.getElementById("mainImg").src=displayingimgshappy()
+        document.getElementById("maintxt").textContent="YAY!!!"
         buttonNo.remove()
     
 
